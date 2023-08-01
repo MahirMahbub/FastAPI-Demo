@@ -9,7 +9,9 @@ from app.create_data import CreateData
 # from app.routes import movies
 from db.database import SessionLocal
 
-app = FastAPI()
+from app.routes import example
+
+# app = FastAPI()
 
 # API Doc
 app = FastAPI(
@@ -38,14 +40,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app = FastAPI()
-
 # API routes
-# app.include_router(
-#     example,
-#     tags=["example"]
-# )
+app.include_router(
+    example.example_router,
+    tags=["example"]
+)
 
 db = SessionLocal()
 
