@@ -4,17 +4,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.create_data import CreateData
-from app.cruds.data_loader import DataLoaderCrud
-from app.custom_classes.rating_extractor import RatingExtractor
-from app.routes import movies
+# from app.cruds.data_loader import DataLoaderCrud
+# from app.custom_classes.rating_extractor import RatingExtractor
+# from app.routes import movies
 from db.database import SessionLocal
 
 app = FastAPI()
 
 # API Doc
 app = FastAPI(
-    title="Wiki-Movie",
-    description="Wikipedia Persing Tools",
+    title="Demo-Fastapi",
+    description="Demo Server For FastAPI",
     version="1.0.0",
 )
 

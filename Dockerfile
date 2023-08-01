@@ -1,8 +1,9 @@
-FROM python:3.8.5
+FROM python:3.11.0
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /srv/ocr_backend
-WORKDIR /srv/ocr_backend
-COPY requirements.txt /srv/ocr_backend/
+RUN mkdir /srv/backend
+#chown -R python /srv/backend
+WORKDIR /srv/backend
+COPY requirements.txt /srv/backend/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . /srv/ocr_backend/
+COPY . /srv/backend/

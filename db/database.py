@@ -5,8 +5,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy.orm import sessionmaker
 from db.query_helper import CustomQuery
-from fastapi_users import models
-from fastapi_users.db import SQLAlchemyBaseUserTable, SQLAlchemyUserDatabase
 
 # app and db both on local
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./test_sql_app.db"

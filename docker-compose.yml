@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db:
       image: postgres:12.2
-      container_name:  Wiki-Postgres
+      container_name:  DemoPostgres
       restart: always
       environment:
         POSTGRES_DB: postgres
@@ -15,27 +15,27 @@ services:
       ports:
         - 54320:5432
 
-  wiki_movie_backend:
+  demo_backend:
     build: .
-    container_name:  WikiMovie
+    container_name:  DemoServer
     command: bash -c "uvicorn app.main:app --host 0.0.0.0 --port 7003 --reload"
     volumes:
-      - .:/srv/ocr_backend
+      - .:/srv/backend
     ports:
       - 7003:7003
     depends_on:
       - db
     env_file: .env
 
-  wiki_db_mutator:
-    build: .
-    container_name:  wiki-Db-Mutator
-    command: bash -c "python run_db.py auto"
-    volumes:
-      - .:/srv/wiki_movie_backend
-    env_file: .env
-    depends_on:
-      - wiki_movie_backend
+#  wiki_db_mutator:
+#    build: .
+#    container_name:  wiki-Db-Mutator
+#    command: bash -c "python run_db.py auto"
+#    volumes:
+#      - .:/srv/wiki_movie_backend
+#    env_file: .env
+#    depends_on:
+#      - wiki_movie_backend
 
 volumes:
   db-data:
